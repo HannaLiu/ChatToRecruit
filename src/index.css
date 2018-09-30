@@ -1,0 +1,127 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	max-width: 768px;
+	margin: 0 auto;
+	padding: 0;
+	font-family: "STHeiti,Helvetica,Noto Sans Han,Roboto";
+	background-color: #FFFFFF;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+.primery {
+	color: #108ee9;
+}
+
+.am-wingblank.am-wingblank-lg {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.top-title {
+	margin: 50px 0 20px;
+	color: #000;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.middle-title {
+	margin: 15px 0;
+	color: #000;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.am-list-item .am-input-label,
+.am-list-item .am-list-line .am-list-content {
+	font-size: 12px !important;
+}
+
+.am-button {
+	font-size: 14px;
+}
+
+.am-card-body p {
+	font-size: 12px;
+	margin: 5px 0;
+}
+
+.msg {
+	margin-top: 20px;
+	padding: 8px 15px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.msg-button {
+	color: #6d6a9d;
+	background: rgba(255, 255, 255, 0.6);
+	padding: 8px 15px;
+	border-radius: 30px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.fix-bottom {
+	position: fixed;
+	bottom: 20px;
+	width: 90%;
+	width: calc(100% - 60px);
+	max-width: 708px;
+}
+
+.am-tab-bar-bar,
+.am-grid .am-flexbox {
+	background: transparent !important;
+}
+
+.am-card,
+.am-result {
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.am-grid .am-flexbox .am-flexbox-item .am-grid-item-content .am-grid-item-inner-content .am-grid-text {
+	display: none;
+}
+
+.am-grid.am-grid-square .am-grid-item .am-grid-item-inner-content .am-grid-icon {
+	margin-top: 0;
+	width: 50% !important;
+}
+
+.am-tab-bar {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.fixed-header.am-navbar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.page-content {
+	padding: 45px 5px;
+}
+
+#chat-page .chat-me .am-list-extra {
+	flex-basis: auto;
+}
+
+#chat-page .chat-me.am-list-item .am-list-line .am-list-content {
+	padding-right: 15px;
+	text-align: right;
+}
+
+.stick-footer {
+	z-index: 10;
+	position: absolute;
+	bottom: 0;
+	width: 100%
+}

@@ -1,0 +1,7 @@
+.logo-container{
+	padding: 50px 0 20px;
+	text-align: center;
+}
+.logo-container img{width: 30%;margin-bottom: 20px;}
+.logo-container p{margin: 0;}
+.logo-text{font-size: 40px; line-height: 130%;}
