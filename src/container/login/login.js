@@ -18,8 +18,23 @@ import formBind from '../../component/formbind/formbind'
 class Login extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+			user: '',
+			pwd:'',
+			msg:''
+		}
         this.register = this.register.bind(this)
+        this.onChange = this.onChange.bind(this)
         this.handleLogin = this.handleLogin.bind(this)
+    }
+    
+	componentWillReceiveProps(nextProps){
+		console.log(nextProps.msg)
+    	if(nextProps.msg!==""){
+    		this.setState({msg:nextProps.msg})
+			console.log(this.state.msg)
+    		Toast.info(nextProps.msg, 1);
+    	}
     }
 
     register() {
@@ -27,12 +42,13 @@ class Login extends React.Component {
     }
 
     handleLogin() {
-        this.props.login(this.props.state)        
-        
-//      console.log(this.props.msg)
-//      if(this.props.msg){
-//  		Toast.info(this.props.msg, 1);
-//  	}
+        this.props.login(this.state)
+    }
+    
+    onChange(key,val){
+      this.setState({
+        [key]:val
+      })
     }
     
     render() {
@@ -44,19 +60,21 @@ class Login extends React.Component {
             <p className="top-title">进入职聘</p>
               <List>
                 <InputItem
-            onChange = {v => this.props.handleChange('user', v)}
+            onChange = {v => this.onChange('user', v)}
+            onFocus = {this.handleFocus}
             >用户名</InputItem>
                 <InputItem
             type='password'
-            onChange = {v => this.props.handleChange('pwd', v)}
+            onChange = {v => this.onChange('pwd', v)}
+            onFocus = {this.handleFocus}
             >密码</InputItem>
               </List>
-              <WhiteSpace size="xl" />
+              <WhiteSpace/>
               <Button type='primary'
-              disabled={!this.props.state.user || !this.props.state.pwd }
+              disabled={!this.state.user || !this.state.pwd }
             onClick = {this.handleLogin}
              activeClassName="button-active"
-            >登录</Button>            
+            >登录</Button>  
             <p className='msg' onClick={this.register}>没有账号? <span className="primery">去注册</span></p>
             </WingBlank>
             </div>

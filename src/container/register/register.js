@@ -15,12 +15,12 @@ import formBind from '../../component/formbind/formbind'
 class Register extends React.Component {
 	constructor(props) {
 		super(props);
-		this.handleRegister = this.handleRegister.bind(this)
-		this.handleFocus = this.handleFocus.bind(this)
-		this.login = this.login.bind(this)
 		this.state = {
 			showMsg: false
 		}
+		this.handleRegister = this.handleRegister.bind(this)
+		this.handleFocus = this.handleFocus.bind(this)
+		this.login = this.login.bind(this)
 	}
 
 	componentDidMount() {
@@ -84,7 +84,7 @@ class Register extends React.Component {
       				</List>
               		<WhiteSpace/>
         			{this.props.msg && this.state.showMsg?<p className='msg-button'>{this.props.msg}</p>:null}
-      				<WhiteSpace size="xl" />
+      				<WhiteSpace/>
       				<Button type='primary'
       				disabled={!this.props.state.user || !this.props.state.pwd || !this.props.state.repeatpwd }
       				onClick={this.handleRegister} 
