@@ -1,38 +1,46 @@
 const mongoose = require('mongoose')
-const DB_URL = 'mongodb://localhost:27017/ChatToRecruit'
-mongoose.connect(DB_URL)
-mongoose.connection.on('connected',function () {
-    console.log('mongodb connected successfully')
-})
-
+const uri = ""; //input your own MongoDB connection link
 
 const models = {
-	user:{
-		'user':{'type':String,'require':true},
-		'pwd':{'type':String,'require':true},
-		'type':{'type':String,'require':true},
-		'avatar':{'type':String},
-		"description":{'type':String},
-		'title':{'type':String},
-		'company':{'type':String},
-		'salary':{'type':String}
-	},
-	chat:{
-		'chatid':{'type':String,'require':true},
-		'from':{'type':String,'require':true},
-		'to':{'type':String,'require':true},
-		'read':{'type':Boolean,'default':false},
-		'content':{'type':String,'require':true,'default':''},
-		'create_time':{'type':Number,'default':Date.now}
-	}
+  user: {
+    'user': { 'type': String, 'required': true },
+    'pwd': { 'type': String, 'required': true },
+    'type': { 'type': String, 'required': true },
+    'avatar': { 'type': String },
+    "description": { 'type': String },
+    'title': { 'type': String },
+    'company': { 'type': String },
+    'salary': { 'type': String }
+  },
+  chat: {
+    'chatid': { 'type': String, 'required': true },
+    'from': { 'type': String, 'required': true },
+    'to': { 'type': String, 'required': true },
+    'read': { 'type': Boolean, 'default': false },
+    'content': { 'type': String, 'required': true, 'default': '' },
+    'create_time': { 'type': Number, 'default': Date.now }
+  }
 }
 
-for(let m in models){
-	mongoose.model(m, new mongoose.Schema(models[m]))
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => {
+    console.error('connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
+
+
+
+for (let m in models) {
+  mongoose.model(m, new mongoose.Schema(models[m], { collection: m + "s" }))
 }
 
 module.exports = {
-	getModel:function(name){
-		return mongoose.model(name)
-	}
+  getModel: function (name) {
+    return mongoose.model(name)
+  }
 }

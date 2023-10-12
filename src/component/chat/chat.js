@@ -89,7 +89,7 @@ class Chat extends React.Component{
 							onChange={v=>{
 								this.setState({text:v})
 							}}
-							extra={<span onClick={()=>this.handleSubmit()}>发送</span>}
+							extra={this.state.text==""? <span>发送</span> : <span onClick={()=>this.handleSubmit()}>发送</span>}
 						>
 						</InputItem>
 					</List>

@@ -32,7 +32,7 @@ class Login extends React.Component {
 		console.log(nextProps.msg)
     	if(nextProps.msg!==""){
     		this.setState({msg:nextProps.msg})
-			console.log(this.state.msg)
+
     		Toast.info(nextProps.msg, 1);
     	}
     }

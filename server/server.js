@@ -15,8 +15,13 @@ io.on('connection',function(socket){
 		console.log(data)
 		// io.emit('receivemsg',data)
 		const {from,to,msg} = data
+    console.log(data)
 		const chatid = [from,to].sort().join('_')
 		Chat.create({chatid, from, to, content:msg},function(err,doc){
+      if(err){
+        console.log(err)
+        return 
+      }
 			io.emit('receivemsg',Object.assign({},doc._doc))
 		})
 	})
